@@ -28,6 +28,11 @@ class Battle < Sinatra::Base
     erb :attack
   end
 
+  post '/attack' do
+    $player_2.reduce_hp
+    redirect to('/attack')
+  end
+
   def player_score(player)
     "#{player[:name]} : #{player[:score]}"
   end
