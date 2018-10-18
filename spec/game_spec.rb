@@ -25,4 +25,11 @@ describe Game do
     end
   end
 
+  describe '#switch' do
+    it 'player_2 should now be player_1' do
+      subject.switch
+      expect(subject.player_1).to eq player_2
+    end
+  end
+
 end
