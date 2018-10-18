@@ -1,5 +1,5 @@
 require 'sinatra/base'
-
+require './lib/player'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -15,11 +15,10 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    # session[:current_player] ||= :player_1
     @player_1_name = $player_1.name
+    @player_1_hp = $player_1.hp
     @player_2_name = $player_2.name
-    # @opponent_score = player_score(session[:player_2])
-    # session[:current_player] == :player_1 ? session[:current_player] == :player_2 : session[:current_player] == :player_1
+    @player_2_hp = $player_2.hp
     erb :play
   end
 
