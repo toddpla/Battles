@@ -5,6 +5,14 @@ class Game
     @players = [player_1, player_2]
   end
 
+  def self.create(player_1:, player_2:)
+    @game = Game.new(player_1: player_1, player_2: player_2)
+  end
+
+  def self.instance
+    @game
+  end
+
   def attack(player)
     player.reduce_hp
   end
