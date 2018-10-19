@@ -21,4 +21,8 @@ class Game
     @players.reverse!
   end
 
+  def lost?
+    player_2.hp <= 0
+  end
+
 end

@@ -32,4 +32,11 @@ describe Game do
     end
   end
 
+  describe '#lost?' do
+    it 'player_2 loses' do
+      allow(player_2).to receive(:hp).and_return(0)
+      expect(subject.lost?).to be true
+    end
+  end
+
 end

@@ -24,8 +24,14 @@ class Battle < Sinatra::Base
   get '/attack' do
     @game = $game
     @game.attack(@game.player_2)
+    redirect '/player_lost' if @game.lost?
     @game.switch
     erb :attack
+  end
+
+  get '/player_lost' do
+    @game = $game
+    erb :player_lost
   end
 
   def player_score(player)
